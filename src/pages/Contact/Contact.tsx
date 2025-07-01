@@ -1,13 +1,13 @@
-// src/pages/Contact/Contact.tsx (CORRECTED)
+// src/pages/Contact/Contact.tsx (CONFIRM THIS CONTENT)
 import React from 'react';
 import styles from './Contact.module.css';
 import { personalInfo } from '../../data/personalInfo';
-import { CONTACT_HEADING } from '../../utils/constants'; // Import CONTACT_HEADING from constants
+import { CONTACT_HEADING } from '../../utils/constants';
 
 const Contact: React.FC = () => {
   return (
     <div className={`${styles.contactPage} container`}>
-      <h1 className="section-heading">{CONTACT_HEADING}</h1> {/* Use the constant here */}
+      <h1 className="section-heading">{CONTACT_HEADING}</h1>
       <p className="section-subheading">Ready to collaborate? Reach out to me!</p>
       <div className={styles.contactInfo}>
         <p>Email: <a href={`mailto:${personalInfo.email}`} className={styles.contactLink}>{personalInfo.email}</a></p>

@@ -1,14 +1,13 @@
-// src/pages/ProjectDetail/ProjectDetail.tsx (CORRECTED IMPORTS)
+// src/pages/ProjectDetail/ProjectDetail.tsx (CONFIRM THIS CONTENT)
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './ProjectDetail.module.css';
 import { portfolioData } from '../../data/portfolioData';
-import type { Project } from '../../types/portfolio'; // <--- ADD 'type' HERE
+import type { Project } from '../../types/portfolio'; // <--- Ensure 'type' is here
 import Button from '../../components/Button';
 
-// ... rest of ProjectDetail.tsx code (should be exactly what I provided before)
 const ProjectDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // Get the project ID from the URL
   const [project, setProject] = useState<Project | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -17,7 +16,7 @@ const ProjectDetail: React.FC = () => {
       const foundProject = portfolioData.find(p => p.id === id);
       setProject(foundProject);
     }
-    setLoading(false);
+    setLoading(false); // Set loading to false once data is processed
   }, [id]);
 
   if (loading) {
@@ -53,6 +52,8 @@ const ProjectDetail: React.FC = () => {
       </div>
 
       <div className={styles.contentArea}>
+        {/* Render full content. If `fullContent` is HTML, use dangerouslySetInnerHTML.
+            If it's Markdown, you'd use a Markdown renderer library like `react-markdown`. */}
         {project.fullContent ? (
           <div dangerouslySetInnerHTML={{ __html: project.fullContent }} />
         ) : (

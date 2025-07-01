@@ -1,8 +1,9 @@
-// src/components/PortfolioCard/PortfolioCard.tsx (FULL CONTENT)
+// src/components/PortfolioCard/PortfolioCard.tsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './PortfolioCard.module.css';
-import type { Project, Tag } from '../../types/portfolio'; // Use type-only import for Project and Tag
-import Button from '../Button'; // Assuming Button component is correctly set up
+import type { Project, Tag } from '../../types/portfolio';
+import Button from '../Button';
 
 interface PortfolioCardProps {
   project: Project;
@@ -30,10 +31,11 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
             <Button variant="primary" link={`/project/${project.id}`}>
               {project.viewButtonText}
             </Button>
-            {/* Download PDF button */}
+            {/* REMOVED: Download PDF button
             <Button variant="secondary" link={project.pdfPath} target="_blank" download={`${project.id}.pdf`}>
               Download PDF
             </Button>
+            */}
           </div>
         </div>
       </div>

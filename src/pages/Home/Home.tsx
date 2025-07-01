@@ -1,20 +1,37 @@
-// src/pages/Home/Home.tsx
+// src/pages/Home/Home.tsx (FINAL VERSION - Including Articles Section)
 import React, { useRef, useEffect } from 'react';
 import styles from './Home.module.css';
-// Import all section components (will populate these later)
+
+// Import all section components
 import Hero from '../../components/Hero';
 import StrategicContent from '../../components/StrategicContent';
 import CreativeWork from '../../components/CreativeWork';
 import About from '../../components/About';
+import PortfolioCard from '../../components/PortfolioCard'; // For displaying article cards
 
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { useActiveSection } from '../../context/ActiveSectionContext';
-import { SECTION_IDS, ARTICLES_HEADING, STRATEGIC_CONTENT_HEADING, CREATIVE_WORK_HEADING, ABOUT_HEADING, CONTACT_HEADING } from '../../utils/constants';
+import { 
+  SECTION_IDS, 
+  ARTICLES_HEADING, 
+  STRATEGIC_CONTENT_HEADING, 
+  CREATIVE_WORK_HEADING, 
+  ABOUT_HEADING, 
+  CONTACT_HEADING 
+} from '../../utils/constants';
+
+import { portfolioData } from '../../data/portfolioData'; // Import your portfolio data
+import { ProjectCategory } from '../../types/portfolio'; // Import ProjectCategory enum
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   const { setActiveSectionId } = useActiveSection();
+
+  // Filter articles for the "Latest Insights" section
+  const articleProjects = portfolioData.filter(
+    (project) => project.category === ProjectCategory.ARTICLE
+  );
 
   // Refs for each section to observe for active navigation highlighting
   const [heroRef, isHeroIntersecting] = useIntersectionObserver({ threshold: 0.5 });
@@ -26,7 +43,7 @@ const Home: React.FC<HomeProps> = () => {
 
   // Effect to update the active section based on intersection
   useEffect(() => {
-    // Order matters for priority if multiple sections are visible
+    // Order matters for priority if multiple sections are visible (from top to bottom visually)
     if (isContactIntersecting) {
       setActiveSectionId(SECTION_IDS.CONTACT);
     } else if (isArticlesIntersecting) {
@@ -88,9 +105,11 @@ const Home: React.FC<HomeProps> = () => {
         <div className="container">
           <h2 className="section-heading">{ARTICLES_HEADING}</h2>
           <p className="section-subheading">Thoughts on content strategy, UX writing, and the evolving landscape of digital communication.</p>
-          {/* This will render the latest articles using PortfolioCard */}
-          {/* We will add the logic for this when we populate PortfolioCard */}
-          <div>Articles Placeholder - Will display PortfolioCards here</div>
+          <div className={styles.cardsGrid}> {/* Reusing cardsGrid style from Strategic/Creative */}
+            {articleProjects.map((project) => (
+              <PortfolioCard key={project.id} project={project} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -99,7 +118,7 @@ const Home: React.FC<HomeProps> = () => {
         <div className="container">
           <h2 className="section-heading" style={{ color: 'var(--color-text-on-dark)' }}>{CONTACT_HEADING}</h2>
           <p className="section-subheading" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Ready to collaborate? Reach out to me!</p>
-          {/* Contact form or info will go here */}
+          {/* We will add the full Contact component here later */}
           <div>Contact Info Placeholder</div>
         </div>
       </section>
