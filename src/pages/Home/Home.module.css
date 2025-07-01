@@ -1,0 +1,22 @@
+/* src/pages/Home/Home.module.css */
+.homePage {
+  /* Overall wrapper for the home page sections */
+}
+
+/* The Hero section component itself will define its styles,
+   this wrapper is just for consistency if needed */
+.heroSectionWrapper {
+  padding: 0; /* Hero component has its own padding */
+}
+
+/* Common padding for all main content sections */
+.sectionPadding {
+  padding: var(--spacing-xxxl) 0; /* Consistent vertical padding from global */
+}
+
+/* Styles for sections with a dark background, like Creative Projects and Contact */
+.darkSection {
+  background-color: var(--color-background-dark);
+}
+
+/* You can add more specific layout rules here if sections need unique arrangements */

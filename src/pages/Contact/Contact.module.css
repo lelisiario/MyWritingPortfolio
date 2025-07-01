@@ -1,0 +1,28 @@
+/* src/pages/Contact/Contact.module.css */
+.contactPage {
+  padding: var(--spacing-xxxl) 0;
+  text-align: center;
+}
+
+.contactInfo {
+  margin-top: var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-text-dark);
+}
+
+.contactInfo p {
+  margin-bottom: var(--spacing-md);
+}
+
+.contactLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}

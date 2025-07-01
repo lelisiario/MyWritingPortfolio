@@ -1,0 +1,117 @@
+/* src/components/Header/Header.module.css */
+.header {
+  background-color: var(--color-background-light);
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: var(--box-shadow-sm);
+  /* The header scrolls with the page, so no 'position: fixed' here */
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Same as global .container */
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg); /* Same as global .container */
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  white-space: nowrap; /* Keep logo on one line */
+}
+
+.nav ul {
+  display: flex;
+  gap: var(--spacing-xl); /* Space between nav items */
+}
+
+.navLink {
+  color: var(--color-text-medium);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: var(--spacing-xs) 0; /* Add some vertical padding for click area */
+  position: relative; /* For the active indicator */
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink.active {
+  color: var(--color-primary);
+}
+
+.navLink.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust as needed */
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Mobile Menu Specifics */
+.mobileMenuToggle {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  font-size: var(--font-size-xxl);
+  cursor: pointer;
+  color: var(--color-text-dark);
+  padding: var(--spacing-xs);
+  z-index: 1001; /* Ensure it's above other content */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .nav {
+    display: none; /* Hide navigation by default on small screens */
+    flex-direction: column;
+    position: absolute;
+    top: 0; /* Position just below the header, or cover full screen */
+    right: 0;
+    width: 100%; /* Or a specific width like 250px for a side drawer */
+    height: 100vh; /* Or min-height for content */
+    background-color: var(--color-background-dark); /* Dark background for mobile menu */
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    box-shadow: var(--box-shadow-lg);
+    z-index: 1000;
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .navOpen {
+    display: flex; /* Show when open */
+    transform: translateX(0); /* Slide in */
+  }
+
+  .nav ul {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-xl); /* Space out menu items */
+    width: 100%; /* Ensure list takes full width of nav */
+  }
+
+  .navLink {
+    font-size: var(--font-size-xl); /* Larger links for mobile */
+    color: var(--color-text-on-dark); /* White text on dark background */
+  }
+
+  .navLink.active {
+    color: var(--color-primary); /* Active color on dark background */
+  }
+
+  .mobileMenuToggle {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .logo {
+    z-index: 1002; /* Keep logo above mobile menu toggle */
+  }
+}

@@ -1,0 +1,110 @@
+/* src/components/Hero/Hero.module.css (FINAL HERO BUTTON STYLES - Ghost/Glassmorphism) */
+.heroSection {
+  background-image: url('/assets/images/olivia-hutcherson-JJGdTfgPMJw-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-on-dark);
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 50, 80, 0.7); /* Stronger, dark blue transparent overlay */
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.name {
+  font-size: var(--font-size-xxxxl);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-on-dark);
+}
+
+.tagline {
+  font-size: var(--font-size-xxxl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-on-dark);
+}
+
+.description {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xxl);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+/* --- Specific button overrides for the hero section (Ghost/Glassmorphism Style) --- */
+.heroSection :global(.button) {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+    border-radius: 30px;
+    box-shadow: var(--box-shadow-sm); /* Added subtle shadow by default */
+    font-weight: 500;
+
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque by default */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Stronger border by default */
+    color: var(--color-text-on-dark);
+
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Apply hover effects to both primary and secondary buttons equally */
+.heroSection :global(.primary):hover,
+.heroSection :global(.secondary):hover {
+  background-color: rgba(255, 255, 255, 0.25); /* Even more opaque on hover */
+  border-color: rgba(255, 255, 255, 0.5); /* Border even stronger on hover */
+  box-shadow: var(--box-shadow-md); /* Stronger shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 60vh;
+    padding: var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .name {
+    font-size: var(--font-size-xxxl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-xxl);
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}

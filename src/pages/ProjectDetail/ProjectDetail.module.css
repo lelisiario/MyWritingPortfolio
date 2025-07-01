@@ -1,0 +1,106 @@
+/* src/pages/ProjectDetail/ProjectDetail.module.css */
+.projectDetail {
+  padding: var(--spacing-xxxl) 0;
+  max-width: 900px; /* Wider container for project content */
+  margin: 0 auto;
+}
+
+.headerArea {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
+}
+
+.title {
+  font-size: var(--font-size-xxxl);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-medium);
+  margin-bottom: var(--spacing-md);
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tag {
+  background-color: var(--color-background-section);
+  color: var(--color-text-medium);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.readTime {
+  font-size: var(--font-size-md);
+  color: var(--color-text-light);
+}
+
+.contentArea {
+  line-height: 1.8;
+  font-size: var(--font-size-base);
+  color: var(--color-text-dark);
+}
+
+.contentArea h1, .contentArea h2, .contentArea h3, .contentArea h4, .contentArea h5, .contentArea h6 {
+  color: var(--color-text-dark); /* Ensure headings are dark */
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.contentArea p {
+  margin-bottom: var(--spacing-md);
+}
+
+.contentArea ul, .contentArea ol {
+  margin-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.backButtonContainer {
+  text-align: center;
+  margin-top: var(--spacing-xxl);
+}
+
+.backLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.backLink:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.errorHeading {
+  color: red;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-xxl);
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+}

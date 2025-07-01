@@ -1,0 +1,59 @@
+/* src/styles/variables.css (UPDATED with #B9D9EB for Hero Background) */
+
+:root {
+  /* Colors */
+  --color-primary: #1a73e8; /* A vibrant blue for primary actions/highlights */
+  --color-primary-dark: #155cb7; /* Darker shade for hover/active states */
+  --color-accent-light: #8e2de2; /* Light purple for gradients */
+  --color-accent-dark: #4a00e0; /* Dark purple for gradients */
+
+  --color-text-dark: #202124; /* Dark text for headings/main content */
+  --color-text-medium: #5f6368; /* Medium grey for body text/descriptions */
+  --color-text-light: #7c7c7c; /* Lighter grey for subtle text */
+  --color-text-on-dark: #ffffff; /* White text on dark backgrounds */
+  --color-text-on-light-bg: #202124; /* Dark text for light backgrounds */
+
+  --color-background-light: #ffffff; /* White background for main content */
+  --color-background-section: #f8f9fa; /* Light grey for subtle section backgrounds */
+  --color-background-dark: #202124; /* Dark background for footer/other dark sections */
+  --color-background-card-light: #ffffff; /* White for light cards */
+  --color-background-card-dark: #343a40; /* Dark grey for dark cards */
+
+  /* New Light Ocean Blue Shades for Hero Section */
+  --color-hero-bg-light: #B9D9EB; /* Your chosen shade for the Hero background */
+  --color-hero-bg-medium: #A0C5E0; /* A slightly darker version for subtle depth/hover */
+  --color-hero-bg-dark: #87AECB; /* A more distinct dark version if needed for elements on this background */
+
+  --color-border-light: #e0e0e0; /* Light border for cards/elements */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow color */
+  --color-gradient-blue-purple: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent-dark) 100%);
+  --color-gradient-blue: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%); /* Example of a blue gradient */
+
+  /* Spacing and other variables remain the same */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+  --spacing-xxxxl: 96px;
+
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-xxl: 2rem; /* 32px */
+  --font-size-xxxl: 2.5rem; /* 40px */
+  --font-size-xxxxl: 3rem; /* 48px */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  --box-shadow-sm: 0 1px 3px var(--color-shadow);
+  --box-shadow-md: 0 4px 6px var(--color-shadow);
+  --box-shadow-lg: 0 10px 15px -3px var(--color-shadow);
+}
