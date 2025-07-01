@@ -1,6 +1,5 @@
 // src/components/PortfolioCard/PortfolioCard.tsx (FULL CONTENT)
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './PortfolioCard.module.css';
 import type { Project, Tag } from '../../types/portfolio'; // Use type-only import for Project and Tag
 import Button from '../Button'; // Assuming Button component is correctly set up

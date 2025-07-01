@@ -1,11 +1,25 @@
+// src/components/CreativeWork/CreativeWork.tsx
 import React from 'react';
 import styles from './CreativeWork.module.css';
+import { portfolioData } from '../../data/portfolioData';
+import { ProjectCategory } from '../../types/portfolio';
+import PortfolioCard from '../PortfolioCard'; // Import the reusable PortfolioCard
 
-const CreativeWork: React.FC = () => {
+interface CreativeWorkProps {}
+
+const CreativeWork: React.FC<CreativeWorkProps> = () => {
+  // Filter portfolioData to get only creative work projects
+  const creativeProjects = portfolioData.filter(
+    (project) => project.category === ProjectCategory.CREATIVE_WORK
+  );
+
   return (
     <div className={styles.creativeWork}>
-      <h3>Creative Work Placeholder</h3>
-      <p>This section will display your creative projects.</p>
+      <div className={styles.cardsGrid}>
+        {creativeProjects.map((project) => (
+          <PortfolioCard key={project.id} project={project} />
+        ))}
+      </div>
     </div>
   );
 };

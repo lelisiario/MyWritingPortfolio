@@ -1,0 +1,18 @@
+/* src/components/CreativeWork/CreativeWork.module.css */
+.creativeWork {
+  padding: var(--spacing-lg) 0; /* Some vertical padding within the section */
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for cards */
+  gap: var(--spacing-xl); /* Space between cards */
+  justify-content: center; /* Center grid items if they don't fill the row */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+  }
+}
