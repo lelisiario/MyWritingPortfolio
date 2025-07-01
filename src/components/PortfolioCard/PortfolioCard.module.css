@@ -1,0 +1,102 @@
+/* src/components/PortfolioCard/PortfolioCard.module.css (FULL CONTENT) */
+.portfolioCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-card-light); /* White background for cards */
+  border-radius: var(--border-radius-lg); /* Rounded corners for the card */
+  box-shadow: var(--box-shadow-md); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensures rounded corners are applied to thumbnail */
+  text-decoration: none; /* Remove underline from link if card itself is a link */
+  color: inherit; /* Inherit text color */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  height: 100%; /* Ensure cards in a grid have equal height */
+}
+
+.portfolioCard:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: var(--box-shadow-lg); /* More pronounced shadow on hover */
+}
+
+.thumbnailContainer {
+  width: 100%;
+  height: 200px; /* Fixed height for consistent thumbnails */
+  overflow: hidden;
+  background-color: var(--color-background-section); /* Placeholder background if image not loaded */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the container, cropping as needed */
+  transition: transform 0.3s ease; /* Smooth zoom on hover */
+}
+
+.portfolioCard:hover .thumbnail {
+  transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+.cardContent {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows content area to expand and push footer down */
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-medium);
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-medium);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1; /* Allows description to push tags/buttons down if longer */
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm); /* Space above tags */
+  margin-bottom: var(--spacing-lg); /* Space below tags before footer */
+}
+
+.tag {
+  background-color: var(--color-background-section); /* Light grey background for tags */
+  color: var(--color-text-medium);
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  white-space: nowrap; /* Prevent tag text from wrapping */
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Pushes the footer content to the bottom of the card */
+  padding-top: var(--spacing-md); /* Padding above footer */
+  border-top: 1px solid var(--color-border-light); /* Subtle separator */
+}
+
+.readTime {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  white-space: nowrap; /* Keep "X min read" on one line */
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-sm); /* Space between view and download buttons */
+}
