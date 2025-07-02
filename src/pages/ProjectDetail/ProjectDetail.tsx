@@ -1,13 +1,13 @@
-// src/pages/ProjectDetail/ProjectDetail.tsx (CONFIRM THIS CONTENT)
+// src/pages/ProjectDetail/ProjectDetail.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './ProjectDetail.module.css';
 import { portfolioData } from '../../data/portfolioData';
-import type { Project } from '../../types/portfolio'; // <--- Ensure 'type' is here
+import type { Project } from '../../types/portfolio';
 import Button from '../../components/Button';
 
 const ProjectDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Get the project ID from the URL
+  const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<Project | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -16,7 +16,7 @@ const ProjectDetail: React.FC = () => {
       const foundProject = portfolioData.find(p => p.id === id);
       setProject(foundProject);
     }
-    setLoading(false); // Set loading to false once data is processed
+    setLoading(false);
   }, [id]);
 
   if (loading) {
@@ -45,15 +45,18 @@ const ProjectDetail: React.FC = () => {
         </div>
         <div className={styles.actionButtons}>
           {project.readTime && <span className={styles.readTime}>{project.readTime}</span>}
-          <Button variant="primary" link={project.pdfPath} target="_blank" download={`${project.id}.pdf`}>
+          <Button
+            variant="primary"
+            link={project.pdfPath}
+            // REMOVE target="_blank" HERE
+            download={`${project.id}.pdf`}
+          >
             Download PDF
           </Button>
         </div>
       </div>
 
       <div className={styles.contentArea}>
-        {/* Render full content. If `fullContent` is HTML, use dangerouslySetInnerHTML.
-            If it's Markdown, you'd use a Markdown renderer library like `react-markdown`. */}
         {project.fullContent ? (
           <div dangerouslySetInnerHTML={{ __html: project.fullContent }} />
         ) : (

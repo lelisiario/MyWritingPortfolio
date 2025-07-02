@@ -1,6 +1,5 @@
 // src/components/PortfolioCard/PortfolioCard.tsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './PortfolioCard.module.css';
 import type { Project, Tag } from '../../types/portfolio';
 import Button from '../Button';
